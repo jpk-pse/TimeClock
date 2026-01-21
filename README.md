@@ -161,4 +161,4 @@ Current focus:
 
 ## License
 
-Internal / Private project (update if open-sourcing later)
+MIT License. See `LICENSE` file for details.
