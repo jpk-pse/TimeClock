@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="check_schema.sql" type="DatabaseScript" editBeforeRun="true" focusToolWindowBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/sql/check_schema.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="fbaa3787-7e52-4045-a538-1f6c7013e3e2" namespace="schema/&quot;timeclock&quot;" />
+    <method v="2" />
+  </configuration>
+</component>
