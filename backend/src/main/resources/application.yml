@@ -3,7 +3,8 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://pse-db:3307/timeclock
+    url: jdbc:mariadb://pse-db:3307/timeclock?useUnicode=true&characterEncoding=utf8&useServerPrepStmts=true
+    #TODO: hide password in production
     username: timeclock_app
     password: ?1r8G7|bBV+T!L9y
     driver-class-name: org.mariadb.jdbc.Driver
