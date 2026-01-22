@@ -1,6 +1,11 @@
 server:
   port: 8083
 
+app:
+  admin:
+    username: ${ADMIN_USER:admin}
+    password: ${ADMIN_PASS:change-me-now}
+
 spring:
   datasource:
     url: jdbc:mariadb://pse-db:3307/timeclock?useUnicode=true&characterEncoding=utf8&useServerPrepStmts=true
