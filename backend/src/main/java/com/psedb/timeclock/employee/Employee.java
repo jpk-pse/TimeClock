@@ -55,7 +55,7 @@ import java.time.LocalDateTime;
         })
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-class Employee {
+public class Employee {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
