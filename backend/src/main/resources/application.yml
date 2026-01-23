@@ -5,6 +5,8 @@ app:
   admin:
     username: ${ADMIN_USER:admin}
     password: ${ADMIN_PASS:change-me-now}
+  kiosk:
+    key: test123
 
 spring:
   datasource:

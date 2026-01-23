@@ -12,6 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+
 
 @Configuration
 @EnableWebSecurity
@@ -37,7 +40,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, KioskKeyFilter kioskKeyFilter) throws Exception {
 
                 http
                         .authorizeHttpRequests(auth -> auth
@@ -46,17 +49,10 @@ public class SecurityConfig {
                                 .requestMatchers("/login", "/error").permitAll()
                                 .anyRequest().authenticated()
                         )
-                        .formLogin(form -> form
-                                .permitAll()
-                        )
-
-                        .logout(logout -> logout
-                                .logoutUrl("/logout")
-                                .logoutSuccessUrl("/login?logout")
-                        )
-                        .csrf(csrf -> csrf
-                                .ignoringRequestMatchers("/api/**")
-                        )
+                        .addFilterBefore(kioskKeyFilter, UsernamePasswordAuthenticationFilter.class)
+                        .formLogin(form -> form.permitAll())
+                        .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login?logout"))
+                        .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
                         .httpBasic(Customizer.withDefaults());
                 return http.build();
 
